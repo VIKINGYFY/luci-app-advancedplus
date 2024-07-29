@@ -1,28 +1,23 @@
-local fs = require 'nixio.fs'
-local wa = require 'luci.tools.webadmin'
-local ipkg = require 'luci.model.ipkg'
-local http = require 'luci.http'
-local util = require 'nixio.util'
 local uci = luci.model.uci.cursor()
 local name = 'kucat'
 
-local fstat = fs.statvfs(ipkg.overlay_root())
+local fstat = nixio.fs.statvfs(luci.model.ipkg.overlay_root())
 local space_total = fstat and fstat.blocks or 0
 local space_free = fstat and fstat.bfree or 0
 local space_used = space_total - space_free
 local free_byte = space_free * fstat.frsize
 
 function glob(...)
-	local iter, code, msg = fs.glob(...)
+	local iter, code, msg = nixio.fs.glob(...)
 	if iter then
-		return util.consume(iter)
+		return nixio.util.consume(iter)
 	else
 		return nil, code, msg
 	end
 end
 
 local dir = '/www/luci-static/resources/background/'
-ful = SimpleForm('upload', translate("Upload  (Free: ")..wa.byte_format(free_byte)..')', translate("Only JPG, PNG, and GIF files can be uploaded."))
+ful = SimpleForm('upload', translate("Upload  (Free: ")..luci.tools.webadmin.byte_format(free_byte)..')', translate("Only JPG, PNG, and GIF files can be uploaded."))
 ful.reset = false
 ful.submit = false
 
@@ -33,8 +28,8 @@ um = sul:option(DummyValue, '', nil)
 um.template = 'advancedplus/other_dvalue'
 
 local fd
-fs.mkdir(dir)
-http.setfilehandler(
+nixio.fs.mkdir(dir)
+luci.http.setfilehandler(
 	function(meta, chunk, eof)
 		if not fd then
 			if not meta then
@@ -61,8 +56,8 @@ http.setfilehandler(
 	end
 )
 
-if http.formvalue('upload') then
-	local f = http.formvalue('ulfile')
+if luci.http.formvalue('upload') then
+	local f = luci.http.formvalue('ulfile')
 	if #f <= 0 then
 		um.value = translate("No specify upload file.")
 	end
@@ -80,10 +75,10 @@ end
 
 local inits, attr = {}
 for i, f in ipairs(glob(dir..'*')) do
-	attr = fs.stat(f)
+	attr = nixio.fs.stat(f)
 	if attr then
 		inits[i] = {}
-		inits[i].name = fs.basename(f)
+		inits[i].name = nixio.fs.basename(f)
 		inits[i].mtime = os.date('%Y-%m-%d %H:%M:%S', attr.mtime)
 		inits[i].modestr = attr.modestr
 		inits[i].size = getSizeStr(attr.size)
@@ -107,7 +102,7 @@ btnrm.render = function(self, section, scope)
 end
 
 btnrm.write = function(self, section)
-	local v = fs.unlink(dir..fs.basename(inits[section].name))
+	local v = nixio.fs.unlink(dir..nixio.fs.basename(inits[section].name))
 	if v then
 		table.remove(inits, section)
 	end

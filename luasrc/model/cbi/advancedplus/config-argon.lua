@@ -1,10 +1,8 @@
-local fs = require 'nixio.fs'
-local ipkg = require 'luci.model.ipkg'
-local util = require 'nixio.util'
 local uci = luci.model.uci.cursor()
+local name = 'argon'
 
 local primary, dark_primary, blur, blur_dark, transparency, transparency_dark, mode, online_wallpaper
-if fs.access('/etc/config/argon') then
+if nixio.fs.access('/etc/config/argon') then
 	primary = uci:get_first('argon', 'global', 'primary')
 	dark_primary = uci:get_first('argon', 'global', 'dark_primary')
 	blur = uci:get_first('argon', 'global', 'blur')
@@ -71,7 +69,7 @@ o.inputstyle = 'reload'
 
 function br.handle(self, state, data)
 	if (state == FORM_VALID and data.blur ~= nil and data.blur_dark ~= nil and data.transparency ~= nil and data.transparency_dark ~= nil and data.mode ~= nil and data.online_wallpaper ~= nil) then
-		fs.writefile('/tmp/argon.tmp', data)
+		nixio.fs.writefile('/tmp/argon.tmp', data)
 		for key, value in pairs(data) do
 			uci:set('argon', '@global[0]', key, value)
 		end
