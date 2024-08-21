@@ -1,11 +1,13 @@
-local uci = luci.model.uci.cursor()
+local NIXIO_FS = require("nixio.fs")
+local LUCI_UCI = require("luci.model.uci").cursor()
+
 local name = 'design'
 
 local mode, navbar, navbar_proxy
-if nixio.fs.access('/etc/config/design') then
-	mode = uci:get_first('design', 'global', 'mode')
-	navbar = uci:get_first('design', 'global', 'navbar')
-	navbar_proxy = uci:get_first('design', 'global', 'navbar_proxy')
+if NIXIO_FS.access('/etc/config/design') then
+	mode = LUCI_UCI:get_first('design', 'global', 'mode')
+	navbar = LUCI_UCI:get_first('design', 'global', 'navbar')
+	navbar_proxy = LUCI_UCI:get_first('design', 'global', 'navbar_proxy')
 end
 
 local br, s, o
@@ -46,11 +48,11 @@ o.inputstyle = 'reload'
 
 function br.handle(self, state, data)
 	if (state == FORM_VALID and data.mode ~= nil and data.navbar ~= nil and data.navbar_proxy ~= nil) then
-		nixio.fs.writefile('/tmp/design.tmp', data)
+		NIXIO_FS.writefile('/tmp/design.tmp', data)
 		for key, value in pairs(data) do
-			uci:set('design','@global[0]',key,value)
+			LUCI_UCI:set('design','@global[0]',key,value)
 		end
-		uci:commit('design')
+		LUCI_UCI:commit('design')
 	end
 	return true
 end

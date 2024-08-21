@@ -1,23 +1,27 @@
-local uci = luci.model.uci.cursor()
-local name = 'kucat'
+local NX = require("nixio")
+local NIXIO_FS = require("nixio.fs")
+local NIXIO_UTIL = require("nixio.util")
+local LUCI_HTTP = require("luci.http")
+local LUCI_IPKG = require("luci.model.ipkg")
+local LUCI_WEBADMIN = require("luci.tools.webadmin")
 
-local fstat = nixio.fs.statvfs(luci.model.ipkg.overlay_root())
+local fstat = NIXIO_FS.statvfs(LUCI_IPKG.overlay_root())
 local space_total = fstat and fstat.blocks or 0
 local space_free = fstat and fstat.bfree or 0
 local space_used = space_total - space_free
 local free_byte = space_free * fstat.frsize
 
 function glob(...)
-	local iter, code, msg = nixio.fs.glob(...)
+	local iter, code, msg = NIXIO_FS.glob(...)
 	if iter then
-		return nixio.util.consume(iter)
+		return NIXIO_UTIL.consume(iter)
 	else
 		return nil, code, msg
 	end
 end
 
 local dir = '/www/luci-static/kucat/bg/'
-ful = SimpleForm('upload', translate("Upload  (Free: ")..luci.tools.webadmin.byte_format(free_byte)..')', translate("Only JPG, PNG, and GIF files can be uploaded."))
+ful = SimpleForm('upload', translate("Upload  (Free: ")..LUCI_WEBADMIN.byte_format(free_byte)..')', translate("Only JPG, PNG, and GIF files can be uploaded."))
 ful.reset = false
 ful.submit = false
 
@@ -28,8 +32,8 @@ um = sul:option(DummyValue, '', nil)
 um.template = 'advancedplus/other_dvalue'
 
 local fd
-nixio.fs.mkdir(dir)
-luci.http.setfilehandler(
+NIXIO_FS.mkdir(dir)
+LUCI_HTTP.setfilehandler(
 	function(meta, chunk, eof)
 		if not fd then
 			if not meta then
@@ -37,7 +41,7 @@ luci.http.setfilehandler(
 			end
 
 			if meta and chunk then
-				fd = nixio.open(dir..meta.file, 'w')
+				fd = NX.open(dir..meta.file, 'w')
 			end
 
 			if not fd then
@@ -56,8 +60,8 @@ luci.http.setfilehandler(
 	end
 )
 
-if luci.http.formvalue('upload') then
-	local f = luci.http.formvalue('ulfile')
+if LUCI_HTTP.formvalue('upload') then
+	local f = LUCI_HTTP.formvalue('ulfile')
 	if #f <= 0 then
 		um.value = translate("No specify upload file.")
 	end
@@ -75,10 +79,10 @@ end
 
 local inits, attr = {}
 for i, f in ipairs(glob(dir..'*')) do
-	attr = nixio.fs.stat(f)
+	attr = NIXIO_FS.stat(f)
 	if attr then
 		inits[i] = {}
-		inits[i].name = nixio.fs.basename(f)
+		inits[i].name = NIXIO_FS.basename(f)
 		inits[i].mtime = os.date('%Y-%m-%d %H:%M:%S', attr.mtime)
 		inits[i].modestr = attr.modestr
 		inits[i].size = getSizeStr(attr.size)
@@ -102,7 +106,7 @@ btnrm.render = function(self, section, scope)
 end
 
 btnrm.write = function(self, section)
-	local v = nixio.fs.unlink(dir..nixio.fs.basename(inits[section].name))
+	local v = NIXIO_FS.unlink(dir..NIXIO_FS.basename(inits[section].name))
 	if v then
 		table.remove(inits, section)
 	end

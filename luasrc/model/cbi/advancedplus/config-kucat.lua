@@ -1,6 +1,11 @@
+local LUCI_SYS = require("luci.sys")
+local LUCI_HTTP = require("luci.http")
+local LUCI_DISPATCHER = require("luci.dispatcher")
+
+local name = 'kucat'
+
 local opacity_sets = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 local transparency_sets = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1}
-local name = 'kucat'
 local m, s, o
 
 m = Map("advancedplus")
@@ -138,8 +143,8 @@ o.default='0.1'
 
 m.apply_on_parse = true
 m.on_after_apply = function(self,map)
-	luci.sys.exec("/etc/init.d/advancedplus start >/dev/null 2>&1")
-	luci.http.redirect(luci.dispatcher.build_url("admin", "system", "advancedplus", "config-kucat"))
+	LUCI_SYS.exec("/etc/init.d/advancedplus start >/dev/null 2>&1")
+	LUCI_HTTP.redirect(LUCI_DISPATCHER.build_url("admin", "system", "advancedplus", "config-kucat"))
 end
 
 return m

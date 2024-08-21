@@ -1,16 +1,18 @@
-local uci = luci.model.uci.cursor()
+local NIXIO_FS = require("nixio.fs")
+local LUCI_UCI = require("luci.model.uci").cursor()
+
 local name = 'argon'
 
 local primary, dark_primary, blur, blur_dark, transparency, transparency_dark, mode, online_wallpaper
-if nixio.fs.access('/etc/config/argon') then
-	primary = uci:get_first('argon', 'global', 'primary')
-	dark_primary = uci:get_first('argon', 'global', 'dark_primary')
-	blur = uci:get_first('argon', 'global', 'blur')
-	blur_dark = uci:get_first('argon', 'global', 'blur_dark')
-	transparency = uci:get_first('argon', 'global', 'transparency')
-	transparency_dark = uci:get_first('argon', 'global', 'transparency_dark')
-	mode = uci:get_first('argon', 'global', 'mode')
-	online_wallpaper = uci:get_first('argon', 'global', 'online_wallpaper')
+if NIXIO_FS.access('/etc/config/argon') then
+	primary = LUCI_UCI:get_first('argon', 'global', 'primary')
+	dark_primary = LUCI_UCI:get_first('argon', 'global', 'dark_primary')
+	blur = LUCI_UCI:get_first('argon', 'global', 'blur')
+	blur_dark = LUCI_UCI:get_first('argon', 'global', 'blur_dark')
+	transparency = LUCI_UCI:get_first('argon', 'global', 'transparency')
+	transparency_dark = LUCI_UCI:get_first('argon', 'global', 'transparency_dark')
+	mode = LUCI_UCI:get_first('argon', 'global', 'mode')
+	online_wallpaper = LUCI_UCI:get_first('argon', 'global', 'online_wallpaper')
 end
 
 local br, s, o
@@ -69,11 +71,11 @@ o.inputstyle = 'reload'
 
 function br.handle(self, state, data)
 	if (state == FORM_VALID and data.blur ~= nil and data.blur_dark ~= nil and data.transparency ~= nil and data.transparency_dark ~= nil and data.mode ~= nil and data.online_wallpaper ~= nil) then
-		nixio.fs.writefile('/tmp/argon.tmp', data)
+		NIXIO_FS.writefile('/tmp/argon.tmp', data)
 		for key, value in pairs(data) do
-			uci:set('argon', '@global[0]', key, value)
+			LUCI_UCI:set('argon', '@global[0]', key, value)
 		end
-		uci:commit('argon')
+		LUCI_UCI:commit('argon')
 	end
 	return true
 end

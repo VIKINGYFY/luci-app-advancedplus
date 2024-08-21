@@ -1,4 +1,3 @@
-local uci = luci.model.uci.cursor()
 local m, s, o, dl, ul
 
 m = Map("advancedplus")

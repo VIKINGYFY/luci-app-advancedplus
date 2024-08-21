@@ -1,4 +1,6 @@
-local uci = luci.model.uci.cursor()
+local NIXIO_FS = require("nixio.fs")
+local LUCI_SYS = require("luci.sys")
+
 local m, s
 
 m = Map("advancedplus", translate("Advanced Edit"), translate("<font color=\"Red\"><strong>Configuration documents are directly edited unless you know what you are doing, please do not easily modify these configuration documents. Incorrect configuration may result in errors such as inability to power on!</strong></font><br/>"))
@@ -8,7 +10,7 @@ s = m:section(TypedSection, "basic")
 s.anonymous = true
 
 local function CreateTab(s, fileName, filePath)
-	if nixio.fs.access(filePath) then
+	if NIXIO_FS.access(filePath) then
 		local fileCFG = fileName.."conf"
 		s:tab(fileCFG, fileName, translate("This page is about configuration ")..filePath..translate(" Document content, Automatic restart takes effect after saving the application."))
 		local conf = s:taboption(fileCFG, Value, fileCFG, nil, translate("The starting number symbol (#) or each line of the semicolon (;) is considered a comment, Remove (;) and enable the specified option."))
@@ -16,18 +18,18 @@ local function CreateTab(s, fileName, filePath)
 		conf.rows = 20
 		conf.wrap = "off"
 		conf.cfgvalue = function()
-			return nixio.fs.readfile(filePath) or ""
+			return NIXIO_FS.readfile(filePath) or ""
 		end
 		conf.write = function(_, _, uci)
 			if uci then
 				local fileTMP = "/tmp/"..fileName..".tmp"
 				uci = uci:gsub("\r\n?", "\n")
-				nixio.fs.writefile(fileTMP, uci)
-				if (luci.sys.call("cmp -s "..fileTMP.." "..filePath) == 1) then
-					nixio.fs.writefile(filePath, uci)
-					luci.sys.call("/etc/init.d/"..fileName.." restart >/dev/null")
+				NIXIO_FS.writefile(fileTMP, uci)
+				if (LUCI_SYS.call("cmp -s "..fileTMP.." "..filePath) == 1) then
+					NIXIO_FS.writefile(filePath, uci)
+					LUCI_SYS.call("/etc/init.d/"..fileName.." restart >/dev/null")
 				end
-				nixio.fs.remove(fileTMP)
+				NIXIO_FS.remove(fileTMP)
 			end
 		end
 	end
