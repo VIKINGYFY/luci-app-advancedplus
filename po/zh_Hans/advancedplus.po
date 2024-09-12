@@ -170,7 +170,7 @@ msgstr "展开或者收缩导航栏"
 
 #: luasrc/view/advancedplus/advanced.htm:35
 msgid "Fatal on get option,please help in debug"
-msgstr ""
+msgstr "在获取选项时出现严重错误，请在调试中提供帮助。"
 
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:131
 msgid "Fence Background (RGB)"
@@ -212,11 +212,11 @@ msgstr "磨砂玻璃模糊半径"
 
 #: root/usr/share/rpcd/acl.d/luci-app-advancedplus.json:3
 msgid "Grant UCI access for luci-app-advancedplus"
-msgstr ""
+msgstr "为 luci-app-advancedplus 授予 UCI（统一配置接口）访问权限。"
 
 #: luasrc/model/cbi/advancedplus/advancedset.lua:5
 msgid "Here you can adjust various system settings."
-msgstr ""
+msgstr "这里可以设置系统的各种参数。"
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:20
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:13
@@ -475,7 +475,7 @@ msgstr "文件将上传到"
 
 #: luasrc/view/advancedplus/advanced.htm:52
 msgid "Waiting,(executing)..."
-msgstr ""
+msgstr "正在等待，（正在执行）..."
 
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:123
 msgid "Wallpaper Blur Radius"
