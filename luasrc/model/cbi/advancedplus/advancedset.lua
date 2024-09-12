@@ -2,8 +2,7 @@ local m, s, o, dl, ul
 
 m = Map("advancedplus")
 m.title = translate("Advanced Setting")
-m.description = translate("The enhanced version of the original advanced settings allows for unified setting and management of background images for kucat/Agron/Opentopd themes, without the need to upload them separately. Color schemes for kucat/Agron themes can be set.<br>")..
-translate("At the same time, important plugin parameters can be compiled. At the same time, some system parameters can also be set, such as display and hide settings.")..
+m.description = translate("Here you can adjust various system settings. ")..
 translate("</br>For specific usage, see:").."<a href=\'https://github.com/sirpdboy/luci-app-advancedplus.git' target=\'_blank\'>GitHub @sirpdboy/luci-app-advancedplus </a>"
 
 s = m:section(TypedSection, "basic")

@@ -10,8 +10,7 @@ local m, s, o
 
 m = Map("advancedplus")
 m.title = "KuCat"..translate("Theme Config")
-m.description = translate("Set and manage features such as KuCat themed background wallpaper, main background color, partition background, transparency, blur, toolbar retraction and shortcut pointing.</br>")..
-translate("There are 6 preset color schemes, and only the desktop background image can be set to display or not. The custom color values are RGB values such as 255,0,0 (representing red), and a blur radius of 0 indicates no lag in the image.")..
+m.description = translate("Here you can adjust various theme settings. [Recommend Chrome]"))..
 translate("</br>For specific usage, see:").."<a href=\'https://github.com/sirpdboy/luci-app-advancedplus.git' target=\'_blank\'>GitHub @sirpdboy/luci-app-advancedplus </a>"
 
 s = m:section(TypedSection, "basic")
