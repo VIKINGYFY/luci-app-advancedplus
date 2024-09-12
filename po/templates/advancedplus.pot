@@ -113,10 +113,6 @@ msgstr ""
 msgid "Click to execute"
 msgstr ""
 
-#: luasrc/model/cbi/advancedplus/config-design.lua:30
-msgid "Close Navigation Bar"
-msgstr ""
-
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:84
 msgid "Color Scheme List"
 msgstr ""
@@ -135,19 +131,11 @@ msgid "Create upload file error."
 msgstr ""
 
 #: luasrc/controller/advancedplus.lua:26
-msgid "Design heme Config"
-msgstr ""
-
-#: luasrc/controller/advancedplus.lua:29
 msgid "Desktop Background Upload"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:62
 msgid "Disk Man"
-msgstr ""
-
-#: luasrc/model/cbi/advancedplus/config-design.lua:29
-msgid "Display Navigation Bar"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/advancededit.lua:15
@@ -207,19 +195,16 @@ msgid "File saved to"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:32
-#: luasrc/model/cbi/advancedplus/config-design.lua:21
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:96
 msgid "Follow System"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:34
-#: luasrc/model/cbi/advancedplus/config-design.lua:23
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:98
 msgid "Force Dark"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:33
-#: luasrc/model/cbi/advancedplus/config-design.lua:22
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:97
 msgid "Force Light"
 msgstr ""
@@ -234,16 +219,11 @@ msgid "Grant UCI access for luci-app-advancedplus"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:20
-#: luasrc/model/cbi/advancedplus/config-design.lua:15
 msgid "Here you can adjust various theme settings. [Recommend Chrome]"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/advancedset.lua:28
 msgid "Hide Wizard"
-msgstr ""
-
-#: luasrc/model/cbi/advancedplus/config-design.lua:44
-msgid "Homeproxy by default"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:22
@@ -276,7 +256,7 @@ msgid ""
 "downloaded on the same day will be automatically downloaded."
 msgstr ""
 
-#: luasrc/controller/advancedplus.lua:28
+#: luasrc/controller/advancedplus.lua:25
 msgid "Login Background Upload"
 msgstr ""
 
@@ -295,14 +275,6 @@ msgstr ""
 
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:61
 msgid "Mount Points"
-msgstr ""
-
-#: luasrc/model/cbi/advancedplus/config-design.lua:35
-msgid "Navigation Bar Proxy"
-msgstr ""
-
-#: luasrc/model/cbi/advancedplus/config-design.lua:28
-msgid "Navigation Bar Setting"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/advancedset.lua:26
@@ -380,7 +352,6 @@ msgid "Sandy Brown"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:69
-#: luasrc/model/cbi/advancedplus/config-design.lua:46
 msgid "Save Changes"
 msgstr ""
 
@@ -444,12 +415,8 @@ msgstr ""
 msgid ""
 "The enhanced version of the original advanced settings allows for unified "
 "setting and management of background images for kucat/Agron/Opentopd themes, "
-"without the need to upload them separately. Color schemes for kucat/Agron/"
-"design themes can be set.<br>"
-msgstr ""
-
-#: luasrc/model/cbi/advancedplus/config-design.lua:33
-msgid "The navigation bar is display by default"
+"without the need to upload them separately. Color schemes for kucat/Agron "
+"themes can be set.<br>"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/advancededit.lua:16
@@ -459,13 +426,11 @@ msgid ""
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:20
-#: luasrc/model/cbi/advancedplus/config-design.lua:15
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:12
 msgid "Theme Config"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:31
-#: luasrc/model/cbi/advancedplus/config-design.lua:20
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:95
 msgid "Theme Mode"
 msgstr ""
@@ -549,7 +514,6 @@ msgid "Wallpaper Transparency"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:37
-#: luasrc/model/cbi/advancedplus/config-design.lua:26
 msgid "You can choose Theme color mode here"
 msgstr ""
 

@@ -118,10 +118,6 @@ msgstr "选择本地文件："
 msgid "Click to execute"
 msgstr "点击执行"
 
-#: luasrc/model/cbi/advancedplus/config-design.lua:30
-msgid "Close Navigation Bar"
-msgstr "关闭导航栏"
-
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:84
 msgid "Color Scheme List"
 msgstr "颜色配置方案列表"
@@ -140,20 +136,12 @@ msgid "Create upload file error."
 msgstr "创建上传文件失败。"
 
 #: luasrc/controller/advancedplus.lua:26
-msgid "Design heme Config"
-msgstr "Design 主题设置"
-
-#: luasrc/controller/advancedplus.lua:29
 msgid "Desktop Background Upload"
 msgstr "桌面壁纸上传"
 
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:62
 msgid "Disk Man"
 msgstr "磁盘管理"
-
-#: luasrc/model/cbi/advancedplus/config-design.lua:29
-msgid "Display Navigation Bar"
-msgstr "显示导航栏"
 
 #: luasrc/model/cbi/advancedplus/advancededit.lua:15
 msgid ""
@@ -212,19 +200,16 @@ msgid "File saved to"
 msgstr "文件保存到"
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:32
-#: luasrc/model/cbi/advancedplus/config-design.lua:21
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:96
 msgid "Follow System"
 msgstr "跟随系统"
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:34
-#: luasrc/model/cbi/advancedplus/config-design.lua:23
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:98
 msgid "Force Dark"
 msgstr "强制暗色"
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:33
-#: luasrc/model/cbi/advancedplus/config-design.lua:22
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:97
 msgid "Force Light"
 msgstr "强制亮色"
@@ -239,17 +224,12 @@ msgid "Grant UCI access for luci-app-advancedplus"
 msgstr ""
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:20
-#: luasrc/model/cbi/advancedplus/config-design.lua:15
 msgid "Here you can adjust various theme settings. [Recommend Chrome]"
 msgstr "这里可以设置主题的各种参数。[建议使用 Chrome]"
 
 #: luasrc/model/cbi/advancedplus/advancedset.lua:28
 msgid "Hide Wizard"
 msgstr "隐藏设置向导"
-
-#: luasrc/model/cbi/advancedplus/config-design.lua:44
-msgid "Homeproxy by default"
-msgstr "默认 Homeproxy"
 
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:22
 msgid "Iciba Wallpaper"
@@ -283,7 +263,7 @@ msgstr ""
 "本地壁纸库需自行上传，自动下载仅当天登录第一次才下载。彻底解决在线壁纸导致的"
 "卡顿和白屏等问题，如果还卡请清除浏览器缓存。"
 
-#: luasrc/controller/advancedplus.lua:28
+#: luasrc/controller/advancedplus.lua:25
 msgid "Login Background Upload"
 msgstr "登录壁纸上传"
 
@@ -303,14 +283,6 @@ msgstr "修改时间"
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:61
 msgid "Mount Points"
 msgstr "挂载点"
-
-#: luasrc/model/cbi/advancedplus/config-design.lua:35
-msgid "Navigation Bar Proxy"
-msgstr "导航栏代理"
-
-#: luasrc/model/cbi/advancedplus/config-design.lua:28
-msgid "Navigation Bar Setting"
-msgstr "导航栏设置"
 
 #: luasrc/model/cbi/advancedplus/advancedset.lua:26
 msgid "No backend menu required"
@@ -387,7 +359,6 @@ msgid "Sandy Brown"
 msgstr "桑迪布朗黄"
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:69
-#: luasrc/model/cbi/advancedplus/config-design.lua:46
 msgid "Save Changes"
 msgstr "保存更改"
 
@@ -453,15 +424,9 @@ msgstr "网卡断流TSO优化"
 msgid ""
 "The enhanced version of the original advanced settings allows for unified "
 "setting and management of background images for kucat/Agron/Opentopd themes, "
-"without the need to upload them separately. Color schemes for kucat/Agron/"
-"design themes can be set.<br>"
+"without the need to upload them separately. Color schemes for kucat/Agron "
+"themes can be set.<br>"
 msgstr ""
-"原高级设置的加强版，可以统一设置管理 KuCat/Agron/Opentopd三个主题登录壁纸图"
-"片，无须分开上传，可以设置KuCat/Agron/Design主题的颜色方案<br>"
-
-#: luasrc/model/cbi/advancedplus/config-design.lua:33
-msgid "The navigation bar is display by default"
-msgstr "默认显示导航栏"
 
 #: luasrc/model/cbi/advancedplus/advancededit.lua:16
 msgid ""
@@ -471,13 +436,11 @@ msgstr ""
 "开头的数字符号（＃）或分号的每一行（;）被视为注释，删除（;）启用指定选项。"
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:20
-#: luasrc/model/cbi/advancedplus/config-design.lua:15
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:12
 msgid "Theme Config"
 msgstr "主题设置"
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:31
-#: luasrc/model/cbi/advancedplus/config-design.lua:20
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:95
 msgid "Theme Mode"
 msgstr "主题模式"
@@ -563,7 +526,6 @@ msgid "Wallpaper Transparency"
 msgstr "壁纸透明度"
 
 #: luasrc/model/cbi/advancedplus/config-argon.lua:37
-#: luasrc/model/cbi/advancedplus/config-design.lua:26
 msgid "You can choose Theme color mode here"
 msgstr "你可以选择喜欢的主题模式"
 
@@ -578,3 +540,33 @@ msgstr "[暗色模式] "
 #: luasrc/model/cbi/advancedplus/config-argon.lua:49
 msgid "[Light Mode]"
 msgstr "[亮色模式] "
+
+#~ msgid "Close Navigation Bar"
+#~ msgstr "关闭导航栏"
+
+#~ msgid "Design heme Config"
+#~ msgstr "Design 主题设置"
+
+#~ msgid "Display Navigation Bar"
+#~ msgstr "显示导航栏"
+
+#~ msgid "Homeproxy by default"
+#~ msgstr "默认 Homeproxy"
+
+#~ msgid "Navigation Bar Proxy"
+#~ msgstr "导航栏代理"
+
+#~ msgid "Navigation Bar Setting"
+#~ msgstr "导航栏设置"
+
+#~ msgid ""
+#~ "The enhanced version of the original advanced settings allows for unified "
+#~ "setting and management of background images for kucat/Agron/Opentopd "
+#~ "themes, without the need to upload them separately. Color schemes for "
+#~ "kucat/Agron/design themes can be set.<br>"
+#~ msgstr ""
+#~ "原高级设置的加强版，可以统一设置管理 KuCat/Agron/Opentopd三个主题登录壁纸"
+#~ "图片，无须分开上传，可以设置KuCat/Agron/Design主题的颜色方案<br>"
+
+#~ msgid "The navigation bar is display by default"
+#~ msgstr "默认显示导航栏"
