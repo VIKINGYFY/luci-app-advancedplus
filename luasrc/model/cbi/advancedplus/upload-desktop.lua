@@ -21,11 +21,11 @@ function glob(...)
 end
 
 local dir = '/www/luci-static/kucat/bg/'
-ful = SimpleForm('upload', translate("Upload (Free: ")..LUCI_WEBADMIN.byte_format(free_byte)..')', translate("Only JPG, PNG, and GIF files can be uploaded."))
+ful = SimpleForm('upload', translate("Upload (Free:")..LUCI_WEBADMIN.byte_format(free_byte)..')', translate("Only JPG, PNG, and GIF files can be uploaded."))
 ful.reset = false
 ful.submit = false
 
-sul = ful:section(SimpleSection, '', translate("Upload file to ")..dir)
+sul = ful:section(SimpleSection, '', translate("Upload file to")..dir)
 fu = sul:option(FileUpload, '')
 fu.template = 'advancedplus/other_upload'
 um = sul:option(DummyValue, '', nil)

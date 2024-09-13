@@ -14,7 +14,7 @@ s.anonymous = true
 local function CreateTab(s, fileName, filePath)
 	if NIXIO_FS.access(filePath) then
 		local fileCFG = fileName.."conf"
-		s:tab(fileCFG, fileName, translate("This page is about configuration ")..filePath..translate(" Document content, Automatic restart takes effect after saving the application."))
+		s:tab(fileCFG, fileName, translate("This page is about configuration")..filePath..translate("Document content, Automatic restart takes effect after saving the application."))
 		local conf = s:taboption(fileCFG, Value, fileCFG, nil, translate("The starting number symbol (#) or each line of the semicolon (;) is considered a comment, Remove (;) and enable the specified option."))
 		conf.template = "cbi/tvalue"
 		conf.rows = 20

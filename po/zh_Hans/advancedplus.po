@@ -214,7 +214,7 @@ msgstr "为 luci-app-advancedplus 授予 UCI（统一配置接口）访问权限
 #: luasrc/model/cbi/advancedplus/config-argon.lua:20
 #: luasrc/model/cbi/advancedplus/config-kucat.lua:13
 msgid "Here you can adjust various settings."
-msgstr ""
+msgstr "在这里你可以调整各种设置。"
 
 #: luasrc/model/cbi/advancedplus/advancedset.lua:27
 msgid "Hide Wizard"
