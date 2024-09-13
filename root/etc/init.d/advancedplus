@@ -80,7 +80,7 @@ done
 tsoset() {
 	tautocore=/etc/init.d/autocore
 	[ -f $tautocore ] || return
-	if [ "x$(uci -q get advancedplus.@basic[0].tsoset)" = "x1" ]  ;then
+	if [ "x$(uci -q get advancedplus.@basic[0].tsoset)" = "x1" ] ;then
 		sed -i 's/tso on/tso off/g' $tautocore
 		$tautocore restart
 	else
@@ -183,9 +183,9 @@ advancedset(){
 		$ipt -t mangle -A POSTROUTING -o ${dev} -j TTL --ttl-set 64
 	fi
 	#cpumode=`uci -q get advancedplus.@basic[0].cpumode`
-	#[ ! $cpumode ] || cpumodeset $cpumode   /usr/bin/zsh
+	#[ ! $cpumode ] || cpumodeset $cpumode /usr/bin/zsh
 	sed -i "\/bin\/zsh/d" /etc/profile
-	[ "x$(uci -q get advancedplus.@basic[0].usshmenu)" = "x1" ] || echo '/usr/bin/zsh'  >> /etc/profile
+	[ "x$(uci -q get advancedplus.@basic[0].usshmenu)" = "x1" ] || echo '/usr/bin/zsh' >> /etc/profile
 	uci commit netwizard
 }
 
@@ -299,7 +299,7 @@ kucatset(){
 }
 
 start() {
-	[ "x$(uci -q get advancedplus.@basic[0].mode)" = "x" ]  && /etc/config/advancedplus reset
+	[ "x$(uci -q get advancedplus.@basic[0].mode)" = "x" ] && /etc/config/advancedplus reset
 	kucatset
 	advancedset
 	rm -rf /tmp/luci-*

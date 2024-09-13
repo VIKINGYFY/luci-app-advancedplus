@@ -21,7 +21,7 @@ function glob(...)
 end
 
 local dir = '/www/luci-static/kucat/bg/'
-ful = SimpleForm('upload', translate("Upload  (Free: ")..LUCI_WEBADMIN.byte_format(free_byte)..')', translate("Only JPG, PNG, and GIF files can be uploaded."))
+ful = SimpleForm('upload', translate("Upload (Free: ")..LUCI_WEBADMIN.byte_format(free_byte)..')', translate("Only JPG, PNG, and GIF files can be uploaded."))
 ful.reset = false
 ful.submit = false
 
@@ -113,4 +113,4 @@ btnrm.write = function(self, section)
 	return v
 end
 
-return  ful, form
+return ful, form

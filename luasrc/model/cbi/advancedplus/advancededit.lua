@@ -3,7 +3,9 @@ local LUCI_SYS = require("luci.sys")
 
 local m, s
 
-m = Map("advancedplus", translate("Advanced Edit"), translate("<font color=\"Red\"><strong>Configuration documents are directly edited unless you know what you are doing, please do not easily modify these configuration documents. Incorrect configuration may result in errors such as inability to power on!</strong></font><br/>"))
+m = Map("advancedplus")
+m.title = translate("Advanced Edit")
+m.description = translate("<font color=\"Red\"><strong>Configuration documents are directly edited unless you know what you are doing, please do not easily modify these configuration documents. Incorrect configuration may result in errors such as inability to power on!</strong></font><br/>")
 m.apply_on_parse = true
 
 s = m:section(TypedSection, "basic")

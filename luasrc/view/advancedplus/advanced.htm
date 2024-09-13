@@ -1,5 +1,5 @@
 <%#
-Copyright (C)  2022-2024  sirpdboy  <herboy2008@gmail.com>
+Copyright (C) 2022-2024 sirpdboy <herboy2008@gmail.com>
 -%>
 <%+cbi/valueheader%>
 <input type="button" class="btn cbi-button cbi-button-apply" id="apply_run_button" value="<%:Click to execute%>" onclick=" return apply_run(this) "/>
@@ -72,7 +72,7 @@ XHR.poll(3, '<%=url([[admin]], [[system]], [[advancedplus]], [[check]])%>', null
 					if (this.XHR._q[j].url == '<%=url([[admin]], [[system]], [[advancedplus]], [[check]])%>'){
 						this.XHR._q.splice(j,1);
 						checkbtn.disabled = false;
-						checkbtn.value    = '<%:Click to execute%>';
+						checkbtn.value = '<%:Click to execute%>';
 						break;
 					}
 				}

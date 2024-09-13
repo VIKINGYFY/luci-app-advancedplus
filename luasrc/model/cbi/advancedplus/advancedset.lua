@@ -2,7 +2,7 @@ local m, s, o, dl, ul
 
 m = Map("advancedplus")
 m.title = translate("Advanced Setting")
-m.description = translate("Here you can adjust various system settings. ")..
+m.description = translate("Here you can adjust various settings.")..
 translate("</br>For specific usage, see:").."<a href=\'https://github.com/sirpdboy/luci-app-advancedplus.git' target=\'_blank\'>GitHub @sirpdboy/luci-app-advancedplus </a>"
 
 s = m:section(TypedSection, "basic")

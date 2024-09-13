@@ -7,7 +7,7 @@ if ["x$(uci -q get advancedplus.@basic[0].qos)" = "x1" ] ;then
 	[ ! $DEV ] && DEV=br-lan
 
 	DOWNLINK=$(uci -q get advancedplus.@basic[0].download 2>/dev/null | awk '{print $1*10^3/2}')
-	UPLINK=$(uci -q get advancedplus.@basic[0].upload  2>/dev/null | awk '{print $1*10^3/2}')
+	UPLINK=$(uci -q get advancedplus.@basic[0].upload 2>/dev/null | awk '{print $1*10^3/2}')
 
 	# clean existing down- and uplink qdiscs, hide errors
 	tc qdisc del dev $DEV root	 2> /dev/null > /dev/null
@@ -41,7 +41,7 @@ if ["x$(uci -q get advancedplus.@basic[0].qos)" = "x1" ] ;then
 
 	# TOS Minimum Delay (ssh, NOT scp) in 1:10:
 	tc filter add dev $DEV parent 1:0 protocol ip prio 10 u32 \
-		match ip tos 0x10 0xff  flowid 1:10
+		match ip tos 0x10 0xff flowid 1:10
 
 	# ICMP (ip protocol 1) in the interactive class 1:10 so we
 	# can do measurements & impress our friends:

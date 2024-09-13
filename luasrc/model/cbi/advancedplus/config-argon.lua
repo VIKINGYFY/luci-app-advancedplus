@@ -17,7 +17,7 @@ end
 
 local br, s, o
 
-br = SimpleForm('config', "Argon"..translate("Theme Config"), translate("Here you can adjust various theme settings. [Recommend Chrome]"))
+br = SimpleForm('config', name..translate(" Theme Config"), translate("Here you can adjust various settings."))
 br.reset = false
 br.submit = false
 s = br:section(SimpleSection)
